@@ -29,15 +29,33 @@
         android:text="@string/info_tarjetas"/>
 
     <TextView
-        android:id="@+id/respose_text_field"
+        android:id="@+id/last_active_eur"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/respose_headers"
+        android:id="@+id/last_active_int"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="300dp" />
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/card_europe"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/card_international"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/current_card"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
