@@ -12,15 +12,18 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
-    TextView tvInfocards;
+    TextView tvInfocards, tvResponseHeaders;
     Button btnActEu, btnActInt, btnInfoCards;
     int statusCode;
 
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getControlViews() {
         tvInfocards = findViewById(R.id.respose_text_field);
+        tvResponseHeaders = findViewById(R.id.respose_headers);
         btnActEu = findViewById(R.id.btnActEu);
         btnActInt = findViewById(R.id.btnActInt);
         btnInfoCards = findViewById(R.id.btnInfoCards);
@@ -74,15 +78,11 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                       Toast.makeText(MainActivity.this,  error.getMessage(), Toast.LENGTH_SHORT).show();
+                        statusCode = error.networkResponse.statusCode;
+                        tvResponseHeaders.setText(statusCode);
+                        Toast.makeText(MainActivity.this,  error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                }) {
-                    @Override
-                    protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
-                        statusCode = response.statusCode;
-                        return super.parseNetworkResponse(response);
-                    }
-                };
+                });
         requestQueue.add(jsonObjectRequest);
     }
 
