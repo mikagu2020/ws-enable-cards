@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Info Card</string>
+    <string name="activar_europea">activar europea</string>
+    <string name="activar_internacional">activar internacional</string>
+    <string name="info_tarjetas">información tarjetas</string>
 </resources>
