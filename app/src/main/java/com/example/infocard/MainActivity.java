@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int PERMISOS_LOCATION = 1;
     private static String codPais;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void parseToString(JSONObject response) {
-        StringBuilder infoCards = new StringBuilder();
+        //StringBuilder infoCards = new StringBuilder();
         JSONArray jsonArray = response.optJSONArray("records");
         int n = jsonArray.length();
         try {
@@ -182,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-
                         }
                     }
                 });
